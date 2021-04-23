@@ -1,0 +1,25 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+
+{% block content %}
+<br>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card card-body">
+                <h5>Customer:{{customer.name}} </h5>
+                <br>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    {{formset.management_form}}
+                    {% for form in form %}
+                        {{ form }}
+                        <hr>
+                    {% endfor %}
+                    <input type="submit" name="Submit" class='btn btn-success btn-sm'>
+                    <a href="{% url 'accounts:customers' customer.id %}" class='btn btn-warning btn-sm'>Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

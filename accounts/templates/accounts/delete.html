@@ -1,0 +1,18 @@
+{% extends 'accounts/base.html' %}
+
+{% block content %}
+<br>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card card-body">
+                <p>Are you sure want to delete {{item}}?</p>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                        <input type="submit" value="Yeet" class='btn btn-danger btn-sm'>
+                        <a href="{% url 'accounts:home' %}" class='btn btn-warning btn-sm'>Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
