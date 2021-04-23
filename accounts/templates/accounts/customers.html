@@ -1,5 +1,5 @@
 {% extends 'accounts/base.html' %}
-
+{% load static %}
 {% block content %}
 <br>
 
@@ -52,27 +52,29 @@
 <div class="row">
     <div class="col">
         <div class="card card-body">
-            <table class="table table-sm">
-                <tr>
-                    <th>Products</th>
-                    <th>Category</th>
-                    <th>Date Ordered</th>
-                    <th>Status</th>
-                    <th>Update</th>
-                    <th>Remove</th>
-                </tr>
-                {% for order in orders %}
+            <div class="table-responsive">
+                <table class="table table-sm">
                     <tr>
-                        <td>{{ order.product }}</td>
-                        <td>{{ order.product.category }}</td>
-                        <td>{{ order.date_created }}</td>
-                        <td>{{ order.status }}</td>
-                        <td> <a href="{% url 'accounts:update_order' order.id  %}" class='btn btn-success btn-sm' >Update</a> </td>
-                        <td> <a href="{% url 'accounts:delete_order' order.id  %}" class='btn btn-danger btn-sm' >Delete</a> </td>
+                        <th>Products</th>
+                        <th>Category</th>
+                        <th>Date Ordered</th>
+                        <th>Status</th>
+                        <th>Update</th>
+                        <th>Remove</th>
                     </tr>
+                    {% for order in orders %}
+                        <tr>
+                            <td>{{ order.product }}</td>
+                            <td>{{ order.product.category }}</td>
+                            <td>{{ order.date_created }}</td>
+                            <td>{{ order.status }}</td>
+                            <td> <a href="{% url 'accounts:update_order' order.id  %}" class='btn btn-success btn-sm' >Update</a> </td>
+                            <td> <a href="{% url 'accounts:delete_order' order.id  %}" class='btn btn-danger btn-sm' >Delete</a> </td>
+                        </tr>
 
-                {% endfor %}
-            </table>
+                    {% endfor %}
+                </table>
+            </div>
         </div>
 
     </div>
