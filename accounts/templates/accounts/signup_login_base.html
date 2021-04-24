@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" 
+            integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" 
+            integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    
+    <link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}">
+    
+    <title>Login</title>
+</head>
+<body>
+        
+        <div class="d-flex align-items-center min-vh-100 py-3 py-md-0">
+            <div class="container">
+                {% include 'accounts/messages.html' %}
+                <div class="card login-card">
+                    <div class="row no-gutters">
+                        <div class="col-sm-5" id="register-left-side">
+                            <div class="card-body">
+                                <h1 class="card-title text-center text-white mt-5 mb-5">Content Management System</h1>
+                                <hr>
+                                <p class="card-header text-center text-white mt-5">Register or Login here to access CMS Application</p>
+                            </div>  
+                        </div>
+
+                        {% block content %}
+
+
+                        {% endblock %}
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>

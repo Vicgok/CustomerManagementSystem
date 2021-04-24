@@ -5,6 +5,9 @@ import accounts
 app_name = 'accounts'
 urlpatterns = [
     path('',views.home, name="home"),
+    path('register/',views.register, name="register"),
+    path('login/',views.loginPage, name="login"),
+    path('logout/',views.logoutUser, name="logout"),
     path('products/',views.products,name="products"),
     path('customers/<str:pk>/',views.customers, name="customers"),
     path('create_order/<str:pk>',views.createOrder,name="create_order"),

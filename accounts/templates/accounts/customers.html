@@ -1,5 +1,5 @@
 {% extends 'accounts/base.html' %}
-{% load static %}
+
 {% block content %}
 <br>
 
@@ -39,7 +39,8 @@
 <div class="row">
     <div class="col">
         <div class="card card-body">
-            <form>
+            <form method="GET">
+                {{myFilter.form}}
                 <button class="btn btn-primary" type="submit">Search</button>
             </form>
         </div>

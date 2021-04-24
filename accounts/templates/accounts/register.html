@@ -1,0 +1,37 @@
+{% extends 'accounts/signup_login_base.html' %}
+
+{% block content %}
+
+    <div class="col-sm-5" >
+        <div class="card-body" id="register-right-side-content">
+            <br>
+            <h3 class="card-title mb-4">Sign Up</h3>
+            <hr style="background-color: #000000;width: 100%;">
+            <div class="form-group">
+                <form method="POST" action="">
+                    {% csrf_token %}
+                    {{form.username.label}}:
+                    {{form.username}}
+
+                    {{form.email.label}}:
+                    {{form.email}}
+
+                    {{form.password1.label}}
+                    {{form.password1}}
+                    <small  class="form-text text-black-50 mb-2">
+                        Your password must be 8-20 characters long, contain letters and numbers, and must not contain emoji.
+                    </small>
+
+                    {{form.password2.label}}
+                    {{form.password2}} 
+                    
+
+                    <button type="submit"  class="btn btn-primary">Sign Up</button>
+                </form>
+            </div>
+            <p>Already have an account?
+                <a href="{% url 'accounts:login' %}">Login</a>
+            </p>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,136 @@
+{% extends 'accounts/signup_login_base.html' %}
+
+{% block content %}
+    <div class="col-sm-5" >
+        <div class="card-body" id="register-right-side-content">
+            <br>
+            <h3 class="card-title mb-4">Login</h3>
+            <hr style="background-color: #000000;width: 100%;">
+            <div class="form-group">
+                <form method="POST" action="">
+                    {% csrf_token %}
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Username</span>
+                        </div>
+                        <input type="text" class="form-control" name="username" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Password</span>
+                        </div>
+                        <input type="password" class="form-control" name="password" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                    <button type="submit"  class="btn btn-primary">Login</button>
+                </form>
+            </div>
+            <p>Don't have an account?
+                <a href="{% url 'accounts:register' %}">Sign Up</a>
+            </p>
+        </div>
+    </div>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" 
+            integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" 
+            integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    
+    <link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}">
+    
+    <title>Login</title>
+</head>
+<body>
+    {% include 'accounts/messages.html' %}
+    <div class="d-flex align-items-center min-vh-100 py-3 py-md-0">
+        <div class="container">
+            <div class="card login-card">
+                <div class="row no-gutters">
+                    <div class="col-sm-5" id="register-left-side">
+                        <div class="card-body">
+                            <h1 class="card-title text-center text-white mt-5 mb-5">Content Management System</h1>
+                            <hr>
+                            <p class="card-header text-center text-white mt-5">Register or Login here to access CMS Application</p>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-5" >
+                        <div class="card-body" id="register-right-side-content">
+                            <br>
+                            <h3 class="card-title mb-4">Login</h3>
+                            <hr style="background-color: #000000;width: 100%;">
+                            <div class="form-group">
+                                <form method="POST" action="">
+                                    {% csrf_token %}
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text" id="inputGroup-sizing-default">Username</span>
+                                        </div>
+                                        <input type="text" class="form-control" name="username" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                    </div>
+
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                          <span class="input-group-text" id="inputGroup-sizing-default">Password</span>
+                                        </div>
+                                        <input type="password" class="form-control" name="password" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                    </div>
+
+                                    <button type="submit"  class="btn btn-primary">Login</button>
+                                </form>
+                            </div>
+                            <p>Don't have an account?
+                                <a href="{% url 'accounts:register' %}">Sign Up</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html> -->

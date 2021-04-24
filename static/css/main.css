@@ -18,3 +18,35 @@ body{
 .text-muted {
     color: #ffffff!important;
 }
+
+.login-card {
+    border: 0;
+    border-radius: 27.5px;
+    box-shadow: 0 10px 30px 0 rgba(172, 168, 168, 0.43);
+    overflow: hidden; 
+}
+
+.card-body hr{
+    border: none;
+    height: 0.5px;
+    background-color: #ffffff;
+    width: 75%;
+    opacity: 50%;
+}
+
+#register-left-side{
+    background-color: #000000;
+    padding-top: 5%;
+}
+
+#register-right-side-content{
+    padding: 10%;
+    
+}
+
+
+.form-group .input-field{
+    border: none !important ;
+    outline: none !important ;
+}
+
