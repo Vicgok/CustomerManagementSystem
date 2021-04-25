@@ -1,5 +1,5 @@
 {% extends 'accounts/signup_login_base.html' %}
-
+{% load widget_tweaks %}
 {% block content %}
 
     <div class="col-sm-5" >
@@ -10,22 +10,28 @@
             <div class="form-group">
                 <form method="POST" action="">
                     {% csrf_token %}
-                    {{form.username.label}}:
-                    {{form.username}}
+                    <div class="mb-1">
+                        <label for="exampleFormControlInput1" class="form-label">Username</label>
+                        {% render_field form.username type="text" class="form-control" id="exampleFormControlInput1" placeholder="Username" %}
+                    </div>
 
-                    {{form.email.label}}:
-                    {{form.email}}
+                    <div class="mb-1">
+                        <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                        {% render_field form.email type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email address" %}
+                    </div>
 
-                    {{form.password1.label}}
-                    {{form.password1}}
-                    <small  class="form-text text-black-50 mb-2">
-                        Your password must be 8-20 characters long, contain letters and numbers, and must not contain emoji.
-                    </small>
+                    <div class="mb-1">
+                        <label for="exampleFormControlInput1" class="form-label">Password</label>
+                        {% render_field form.password1 type="password" class="form-control" id="exampleFormControlInput1" placeholder="Password" %}
+                        <small  class="form-text text-black-50">
+                            Your password must be 8-20 characters long, contain letters and numbers, and must not contain emoji.
+                        </small>
+                    </div>
 
-                    {{form.password2.label}}
-                    {{form.password2}} 
-                    
-
+                    <div class="mb-1">
+                        <label for="exampleFormControlInput1" class="form-label">Confirm password</label>
+                        {% render_field form.password2 type="password" class="form-control mb-2" id="exampleFormControlInput1" placeholder="Confirm password" %}
+                    </div>
                     <button type="submit"  class="btn btn-primary">Sign Up</button>
                 </form>
             </div>

@@ -1,5 +1,5 @@
 {% extends 'accounts/base.html' %}
-
+{% load widget_tweaks %}
 {% block content %}
 <br>
 
@@ -40,9 +40,26 @@
     <div class="col">
         <div class="card card-body">
             <form method="GET">
-                {{myFilter.form}}
-                <button class="btn btn-primary" type="submit">Search</button>
-            </form>
+                <div class="row">
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label class="label" >Products</label>
+                            {% render_field myFilter.form.product class="form-select sm" %}
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label class="label" >Status</label>
+                            {% render_field myFilter.form.status class="form-select sm" %}
+                        </div>
+                    </div>
+
+                    <div class="col-md-2 mt-4">
+                        <button class="btn btn-primary" type="submit">Search</button>
+                    </div>
+                    </div>
+                </form>
         </div>
 
     </div>
