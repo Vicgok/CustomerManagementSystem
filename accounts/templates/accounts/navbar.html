@@ -24,12 +24,20 @@
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="{% url 'accounts:products' %}">Products</a>
           </li>
+
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="{% url 'accounts:user' %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="{% url 'accounts:user_settings' %}">Settings</a>
+          </li>
           {% endif %}
         </ul>
       </div>
     </div>
 
-    <span class="user-login-feed">Hello, {{request.user}}
+    <span class="user-login-feed">Hello, {{request.user.customer.name}}
     <span ><a class="user-login-feed" href="{% url 'accounts:logout' %}">Logout</a></span>
     </span>
   </nav>

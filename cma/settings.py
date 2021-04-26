@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import os
+
 import django_heroku
 
 from django.contrib.messages import constants as messages
@@ -133,9 +135,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/images/'
 
 STATICFILES_DIRS = [
     BASE_DIR/"static",
 ]
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
 django_heroku.settings(locals())

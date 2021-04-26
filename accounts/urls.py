@@ -1,3 +1,4 @@
+from os import name
 from django.urls import path
 from . import views
 import accounts
@@ -6,6 +7,7 @@ app_name = 'accounts'
 urlpatterns = [
     path('',views.home, name="home"),
     path('user/',views.userPage, name="user"),
+    path('user_settings/',views.accountSettings,name='user_settings'),
 
 
     path('register/',views.register, name="register"),

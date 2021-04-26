@@ -9,7 +9,7 @@ from django.contrib.auth.models import Group
 
 from django.contrib.auth import authenticate,login, logout
 from .models import *
-from .forms import OrderForm,CreateUserForm
+from .forms import OrderForm,CreateUserForm,CustomerForm
 from .filters import OrderFilter
 
 from .decorators import admin_only, unauthenticated_user, allowed_users
@@ -67,6 +67,7 @@ def logoutUser(request):
     logout(request)
     return redirect('accounts:login')
 
+# home dashboard page
 @login_required(login_url='accounts:login')
 @admin_only
 def home(request):
@@ -89,6 +90,7 @@ def home(request):
 
     return render(request,'accounts/dashboard.html',context)
 
+# Customer user page
 @login_required(login_url='accounts:login')
 @allowed_users(allowed_roles=['customer'])
 def userPage(request):
@@ -108,6 +110,31 @@ def userPage(request):
         'out_for_delivery':out_for_delivery,
     }
     return render (request,'accounts/user_page.html',context)
+
+@login_required(login_url='accounts:login')
+@allowed_users(allowed_roles=['customer'])
+def accountSettings(request):
+    customer = request.user.customer
+
+    form = CustomerForm(instance=customer)
+
+    if request.method == 'POST':
+        form = CustomerForm(request.POST,request.FILES, instance=customer)
+
+        if form.is_valid():
+            form.save()
+    
+    context={
+        'form':form
+    }
+
+    return render(request,'accounts/user_settings.html',context)
+
+
+
+
+
+
 
 @login_required(login_url='accounts:login')
 @allowed_users(allowed_roles=['admin'])
