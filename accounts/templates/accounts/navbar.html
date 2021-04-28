@@ -36,8 +36,11 @@
         </ul>
       </div>
     </div>
-
+    {% if request.user.is_staff %}
+      <span class="user-login-feed">Hello, {{request.user.username}}
+    {% else %}
     <span class="user-login-feed">Hello, {{request.user.customer.name}}
-    <span ><a class="user-login-feed" href="{% url 'accounts:logout' %}">Logout</a></span>
+    {% endif %}
+      <span ><a class="user-login-feed" href="{% url 'accounts:logout' %}">Logout</a></span>
     </span>
   </nav>
