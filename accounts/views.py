@@ -30,7 +30,7 @@ def register(request):
             user.groups.add(group)
             Customer.objects.create(
                 user=user,
-                name = username,
+                name = user.username,
                 email = email,
             )
 
@@ -117,13 +117,20 @@ def accountSettings(request):
     customer = request.user.customer
 
     form = CustomerForm(instance=customer)
-
     if request.method == 'POST':
         form = CustomerForm(request.POST,request.FILES, instance=customer)
 
+
         if form.is_valid():
             form.save()
-    
+
+            userUpdateField = {
+                'username':customer.name,
+                'email':customer.email
+            }
+
+            User.objects.filter(pk=request.user.id).update(username=userUpdateField['username'],email=userUpdateField['email'])
+
     context={
         'form':form
     }
